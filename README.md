@@ -60,7 +60,7 @@ Head: Detect(P2, P3, P4, P5)
 
 ```bash
 # Clone the repository
-git clone https://github.com/[your-username]/ARCE-YOLO.git
+git clone https://github.com/tongttt-hash/ARCE-YOLO.git
 cd ARCE-YOLO
 
 # Install dependencies
