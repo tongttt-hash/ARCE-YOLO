@@ -1,0 +1,24 @@
+# ARCE-YOLO Dependencies
+# Based on ultralytics fork + custom modules (AGLE, RFCBAMConv, EUCB)
+# Python >= 3.8
+
+# Core dependencies (from ultralytics)
+numpy>=1.23.0
+matplotlib>=3.3.0
+opencv-python>=4.6.0
+pillow>=7.1.2
+pyyaml>=5.3.1
+requests>=2.23.0
+scipy>=1.4.1
+torch>=1.8.0
+torchvision>=0.9.0
+tqdm>=4.64.0
+psutil
+py-cpuinfo
+pandas>=1.1.4
+seaborn>=0.11.0
+ultralytics-thop>=2.0.0
+
+# Additional dependencies for ARCE-YOLO custom modules
+einops>=0.6.0          # Required by AGLE and RFCBAMConv (rearrange operations)
+timm>=0.9.0            # Required by EUCB (trunc_normal_tf_, named_apply)
