@@ -1,4 +1,4 @@
-# ARCE-YOLO: A Lightweight Attention-Guided Network for Small Green Fruit Detection in Natural Orchards
+# ARCE-YOLO: Enhancing small fruit detection with attention-guided receptive fields network during thinning period
 
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-%3E%3D1.8.0-orange)](https://pytorch.org/)
@@ -85,7 +85,9 @@ model.train(
     data='your_dataset.yaml',  # Path to dataset configuration
     epochs=150,
     imgsz=640,
-    batch=16,
+    batch=4,
+    save_json=True,
+    pretrained=False,
     optimizer='SGD',
     lr0=0.01,
     momentum=0.937,
@@ -112,21 +114,19 @@ results[0].show()
 
 ## Model Zoo
 
-| Model | Parameters | GFLOPs | mAP@0.5 | mAP@0.5:0.95 | APs |
-|-------|-----------|--------|---------|--------------|-----|
-| YOLOv11-n (baseline) | 2.5M | 6.6 | 68.0% | 44.8% | 30.5% |
-| **ARCE-YOLO (ours)** | **2.3M** | **7.1** | **71.5%** | **47.6%** | **37.5%** |
+| Model | Parameters | mAP@0.5 | mAP@0.5:0.95 | APs |
+|-------|-----------|---------|--------------|-----|
+| YOLOv11-n (baseline) | 2.5M | 87.9% | 68.9% | 47.4% |
+| **ARCE-YOLO (ours)** | **2.3M** | **90.9%** | **72.3%** | **54.4%** |
 
-*Results on Golden Pear test set (2,438 images, 7:3 train-test split).*
+*Results on Golden Pear test set (2,438 images, 7:3 train-val split).*
 
 ## Datasets
 
 ### Golden Pear Dataset
 Our private Golden Pear dataset contains 2,438 images of green pears in natural orchard environments, with bounding box annotations. Due to ongoing research and the significant investment in data collection and annotation, the complete dataset is not publicly released at this time.
 
-**However, we provide the following alternatives:**
-- A representative subset is available upon request for verification purposes.
-- The full dataset can be shared privately upon reasonable request.
+**However, we provide the following alternatives:** The full dataset can be shared privately upon reasonable request.
 
 ### MinneApple Dataset
 We also validate our method on the publicly available [MinneApple dataset](https://github.com/nicolaihaeni/MinneApple), which can be used to independently reproduce our results.
@@ -183,18 +183,7 @@ EUCB replaces the standard ConvTranspose for upsampling in the feature fusion pa
 
 This reduces computational cost while maintaining upsampling quality.
 
-## Citation
 
-If you find this work useful, please consider citing:
-
-```bibtex
-@article{arce-yolo-2024,
-  title={ARCE-YOLO: A Lightweight Attention-Guided Network for Small Green Fruit Detection in Natural Orchards},
-  journal={Horticulturae},
-  year={2024},
-  publisher={MDPI}
-}
-```
 
 ## License
 
